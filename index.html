@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Web App</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <div>
+                    <img src="images/logo.svg" alt="" class="logo">
+                </div>
+            </div>
+            <div>
+                <div class="wrapper">
+                    <div class="inner_wrap">
+                        <p class="font">Sans Serif </p>
+                        <span><img src="images/icon-arrow-down.svg" alt=""></span>
+                    </div>
+                    <div class="options">
+                        <p class="sans">Sans Serif</p>
+                        <p class="serif">Serif</p>
+                        <p class="mono">Mono</p>
+                    </div>
+                
+                    <div class="theme-switch-wrapper">
+                        <div class="switch-main">
+                            <div class="switch-inner"></div>
+                        </div>
+                        <div>
+                            <img src="images/icon-moon.svg" alt="" class="icon-lightmode">
+                            <img src="images/icon-moon_copy.svg" alt="" class="icon-darkmode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="search-bar">
+                
+                <div class="search-wrapper">
+                    <img src="images/icon-search.svg" alt="" class="search-icon">
+                    <input type="text" placeholder="Search" id="search" name="search" value="ninja" aria-label="Please enter a word">
+                    <p class="error"></p>
+                </div>
+                
+            </div>
+            <div class="selected-word">
+                <div>
+                    <h1 class="word"></h1>
+                    <span class="pronounce"></span>
+                </div>
+                <div class="icon-bg">
+                    <img src="images/icon-play.svg" alt="" class="play">
+                </div>
+            </div>
+            <div class="noun">
+                <div class="separator">
+                    <hr>
+                    <h2>noun</h2>
+                </div>
+                <h3>Meaning</h3>
+                <ul class="definitions">
+                    
+                </ul>
+            </div>
+            <div >
+                <h3>Synonyms</h3>
+                <div class="synonyms">
+                    
+                </div>
+            </div>
+            <div class="verb">
+                <div class="separator">
+                    <hr>
+                    <h2>verb</h2>
+                </div>
+        
+                <h3>Meaning</h3>
+                <ul class="verb_definitions">
+                    
+                </ul>
+            </div>
+            <div class="source">
+                <h4>Source</h4>
+                <a href="" class="source-link"></a>
+                <img src="images/icon-new-window.svg" alt="">
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
