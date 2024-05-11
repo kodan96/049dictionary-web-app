@@ -38,17 +38,25 @@ $(document).ready(() => {
         fetch(url + word)
             .then(response => {
                 if (!response.ok) {
+                    $('.result').hide();
                     $('.not_found').show();
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
+                $('.result').show();
+                $('.not_found').hide();
                 const word = data[0].word;
                 $('.word').html(word);
 
                 const phonetic = data[0].phonetic;
-                $('.pronounce').html(phonetic);
+
+                if(phonetic != '') {
+                    $('.pronounce').html(phonetic);
+                } else {
+                    $('.pronounce').html('');
+                }
 
                 const meanings = data[0].meanings;
                 const $definitionsList = $('<ul>'); 
@@ -58,7 +66,20 @@ $(document).ready(() => {
                         const $definitionItem = $('<li>'); 
                         $definitionItem.text(definition.definition); 
                         $definitionsList.append($definitionItem); 
+
+                        
+                        gsap.to( $definitionItem, {
+                            duration: 1,
+                            opacity: 1,
+                            y:0,
+                            stagger: .5,
+                            delay: .5,
+                            ease: 'power2.inOut'
+                        })
+                        
                     });
+
+
                 });
 
                 $('.definitions').html($definitionsList);
@@ -74,6 +95,15 @@ $(document).ready(() => {
                     
                     $newSynonym.text(synonym); 
                     $synonymsDiv.append($newSynonym); 
+
+                        gsap.to( $newSynonym, {
+                            duration: 1,
+                            opacity: 1,
+                            y:0,
+                            stagger: .5,
+                            delay: .5,
+                            ease: 'power2.inOut'
+                        })
                     });
                 });
 
@@ -86,6 +116,15 @@ $(document).ready(() => {
                             const $definitionItem = $('<li>'); 
                             $definitionItem.text(definition.definition); 
                             $definitionsListVerbs.append($definitionItem);
+
+                            gsap.to( $definitionItem, {
+                                duration: 1,
+                                opacity: 1,
+                                y:0,
+                                stagger: .5,
+                                delay: .5,
+                                ease: 'power2.inOut'
+                            })
                         })
                     }                  
                 });
@@ -154,6 +193,10 @@ $(document).ready(() => {
         const url = $(this).attr('href'); 
         fetchData(url); 
         $('#search').val($(this).text()); 
+        lenis.scrollTo('top', {
+            duration: 2,
+            ease: 'power2.inOut'
+        })
     });
 
     $('.font').on('click', ()=> {
@@ -174,6 +217,43 @@ $(document).ready(() => {
         $('body').css('font-family','Inconsolata');
         $('.font').text('Monospace');
     })
+
+    const fadeIns = document.querySelectorAll('.fade-in');
+
+    fadeIns.forEach((fadeIn, i) => {
+        gsap.to( fadeIn, {
+            duration: 2,
+            opacity: 1,
+            stagger: .5,
+            delay: i * .5,
+            ease: 'power2.inOut'
+        })
+    })
+
+    
+
+   
+
+
+
+
+
+
+
+
+    const lenis = new Lenis()
+
+    lenis.on('scroll', (e) => {
+    console.log(e)
+    })
+
+    lenis.on('scroll', ScrollTrigger.update)
+
+    gsap.ticker.add((time)=>{
+    lenis.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
 
     
     

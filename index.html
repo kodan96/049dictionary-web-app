@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="fade-in">
             <div>
                 <div>
                     <img src="images/logo.svg" alt="" class="logo">
@@ -44,55 +44,68 @@
                 
                 <div class="search-wrapper">
                     <img src="images/icon-search.svg" alt="" class="search-icon">
-                    <input type="text" placeholder="Search" id="search" name="search" value="ninja" aria-label="Please enter a word">
+                    <input type="text" placeholder="Search" id="search" name="search"  value="Pneumonoultramicroscopicsilicovolcanoconiosis" aria-label="Please enter a word">
                     <p class="error"></p>
                 </div>
                 
             </div>
-            <div class="selected-word">
-                <div>
-                    <h1 class="word"></h1>
-                    <span class="pronounce"></span>
+            <div class="result">
+                <div class="selected-word">
+                    <div>
+                        <h1 class="word fade-in"></h1>
+                        <span class="pronounce">/:No-data:/</span>
+                    </div>
+                    <div class="icon-bg">
+                        <img src="images/icon-play.svg" alt="" class="play">
+                    </div>
                 </div>
-                <div class="icon-bg">
-                    <img src="images/icon-play.svg" alt="" class="play">
+                <div class="noun">
+                    <div class="separator">
+                        <hr>
+                        <h2 class="fade-in">noun</h2>
+                    </div>
+                    <h3>Meaning</h3>
+                    <ul class="definitions">
+                        
+                    </ul>
+                </div>
+                <div >
+                    <h3 class="fade-in">Synonyms</h3>
+                    <div class="synonyms">
+                        
+                    </div>
+                </div>
+                <div class="verb">
+                    <div class="separator">
+                        <hr>
+                        <h2 class="fade-in">verb</h2>
+                    </div>
+            
+                    <h3 class="fade-in">Meaning</h3>
+                    <ul class="verb_definitions">
+                        
+                    </ul>
+                </div>
+                <div class="source">
+                    <h4>Source</h4>
+                    <a href="" class="source-link"></a>
+                    <img src="images/icon-new-window.svg" alt="">
                 </div>
             </div>
-            <div class="noun">
-                <div class="separator">
-                    <hr>
-                    <h2>noun</h2>
+            <div class="not_found">
+                <div class="img_container">
+                    <img src="images/67lsoo1n9uu4aar795usapt0a6-4942e762c6b36496b6ccaab162994393.png" alt="">
                 </div>
-                <h3>Meaning</h3>
-                <ul class="definitions">
-                    
-                </ul>
-            </div>
-            <div >
-                <h3>Synonyms</h3>
-                <div class="synonyms">
-                    
+                <div class="not_found-text">
+                    <h2>No Definitions Found</h2>
+                    <p>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
                 </div>
-            </div>
-            <div class="verb">
-                <div class="separator">
-                    <hr>
-                    <h2>verb</h2>
-                </div>
-        
-                <h3>Meaning</h3>
-                <ul class="verb_definitions">
-                    
-                </ul>
-            </div>
-            <div class="source">
-                <h4>Source</h4>
-                <a href="" class="source-link"></a>
-                <img src="images/icon-new-window.svg" alt="">
             </div>
         </main>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
