@@ -51,13 +51,14 @@ $(document).ready(() => {
                 $('.word').html(word);
 
                 const phonetic = data[0].phonetic;
+                const pronounce = document.querySelector('.pronounce');
 
-                if(phonetic != '') {
-                    $('.pronounce').html(phonetic);
+                if(phonetic === undefined) {
+                    $('.pronounce').html('/No value available/');
                 } else {
-                    $('.pronounce').html('');
+                    $('.pronounce').html(phonetic);
                 }
-
+                
                 const meanings = data[0].meanings;
                 const $definitionsList = $('<ul>'); 
 
@@ -199,26 +200,48 @@ $(document).ready(() => {
         })
     });
 
+    $('#search').on('keydown', (event) => {
+        if(event.key === 'Enter') {
+            fetchData('https://api.dictionaryapi.dev/api/v2/entries/en/', $('#search').val().toLowerCase())
+        }
+    })
+
     $('.font').on('click', ()=> {
         $('.options').slideToggle();
     })
 
+    $('.options').on('mouseleave', () => {
+        $('.options').slideUp();
+    });
+
     $('.sans').on('click', (e) => {
         $('body').css('font-family','Inter');
         $('.font').text('Sans Serif');
+        $('.options').slideToggle();
     })
 
     $('.serif').on('click', () => {
         $('body').css('font-family','Lora');
         $('.font').text('Serif');
+        $('.options').slideToggle();
     })
 
     $('.mono').on('click', () => {
         $('body').css('font-family','Inconsolata');
         $('.font').text('Monospace');
+        $('.options').slideToggle();
     })
 
+    
+
+    $('.arrow').on('click', () => {
+        $('.options').slideToggle();
+    })
+
+    
     const fadeIns = document.querySelectorAll('.fade-in');
+
+    
 
     fadeIns.forEach((fadeIn, i) => {
         gsap.to( fadeIn, {

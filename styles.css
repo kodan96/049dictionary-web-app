@@ -80,6 +80,7 @@ header {
     position: relative;
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .logo {
@@ -89,14 +90,17 @@ header {
 .font {
     font-weight: 700;
     color: var(--font);
+    
 
     span {
         margin-left: .5rem;
-        color: var(--font)
+        color: var(--font);
+
     }
 }
 
-.font:hover {
+.font:hover,
+.arrow:hover {
     cursor: pointer;
     color: var(--switch-bg);
 }
@@ -107,7 +111,7 @@ header {
     padding: 1rem;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, .2);
     border-radius: 10px;
-    left: 0;
+    right: 50%;
     z-index: 999;
     display: none;
     background-color: var(--white);
@@ -116,6 +120,8 @@ header {
     p {
         margin-block: .75em;
         font-weight: 700;
+        font-size: .75em;
+        
     }
 }
 
@@ -177,6 +183,9 @@ header {
 .inner_wrap {
     display: flex;
     gap: .5rem;
+    width: 15ch;
+    text-align: right;
+    justify-content: end;
 }
 
 .play:hover {
@@ -389,3 +398,4 @@ li::before {
         margin-bottom: 2rem;
     }
 }
+
